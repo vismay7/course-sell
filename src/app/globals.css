@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Modern Theme: Soft Lavender, Light Peach, Mint Green */
+    --background: 240 67% 97%; /* Soft Lavender */
+    --foreground: 240 10% 20%; /* Dark Muted Purple/Grey */
+
+    --card: 240 60% 99%; /* Very Light Lavender/Off-white */
+    --card-foreground: 240 10% 20%; /* Dark Muted Purple/Grey */
+
+    --popover: 240 60% 99%; /* Very Light Lavender/Off-white */
+    --popover-foreground: 240 10% 20%; /* Dark Muted Purple/Grey */
+
+    --primary: 130 60% 65%; /* Mint Green (Adjusted) */
+    --primary-foreground: 130 10% 15%; /* Dark Green/Grey */
+
+    --secondary: 39 100% 90%; /* Light Peach (Adjusted) */
+    --secondary-foreground: 39 30% 25%; /* Dark Brown/Orange */
+
+    --muted: 240 10% 90%; /* Light Grey */
+    --muted-foreground: 240 5% 50%; /* Medium Grey */
+
+    --accent: 130 60% 65%; /* Mint Green (Same as Primary) */
+    --accent-foreground: 130 10% 15%; /* Dark Green/Grey */
+
+    --destructive: 0 84.2% 60.2%; /* Red */
+    --destructive-foreground: 0 0% 98%; /* Light Gray */
+
+    --border: 240 10% 85%; /* Light Grey Border */
+    --input: 240 10% 92%; /* Slightly darker grey for input */
+    --ring: 130 60% 65%; /* Mint Green for focus rings */
+
+    --radius: 0.5rem; /* Default rounded corners */
+
+    --chart-1: 130 60% 65%;  /* Mint */
+    --chart-2: 39 100% 90%;  /* Peach */
+    --chart-3: 0 84.2% 60.2%; /* Red */
+    --chart-4: 210 70% 70%; /* Soft Blue */
+    --chart-5: 270 70% 80%; /* Soft Purple */
+
+    /* Sidebar variables (can keep these or simplify if sidebar isn't heavily styled) */
+    --sidebar-background: 240 10% 20%; /* Dark Foreground */
+    --sidebar-foreground: 240 10% 90%; /* Light Muted */
+    --sidebar-primary: 130 60% 65%; /* Mint Primary */
+    --sidebar-primary-foreground: 130 10% 15%; /* Dark Green */
+    --sidebar-accent: 240 10% 30%; /* Slightly Lighter Dark */
+    --sidebar-accent-foreground: 240 10% 95%; /* Near White */
+    --sidebar-border: 240 10% 35%; /* Subtle Border */
+    --sidebar-ring: 130 60% 65%; /* Mint Ring */
+  }
+
+  .dark {
+    /* Dark Theme: Inverted or adjusted colors */
+    --background: 240 10% 15%; /* Dark Purple/Grey */
+    --foreground: 240 10% 95%; /* Very Light Grey/Lavender */
+
+    --card: 240 10% 20%; /* Slightly lighter dark */
+    --card-foreground: 240 10% 95%;
+
+    --popover: 240 10% 20%;
+    --popover-foreground: 240 10% 95%;
+
+    --primary: 130 60% 70%; /* Slightly brighter Mint */
+    --primary-foreground: 130 10% 10%;
+
+    --secondary: 39 80% 80%; /* Slightly brighter Peach */
+    --secondary-foreground: 39 20% 15%;
+
+    --muted: 240 10% 25%; /* Darker Muted */
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 130 60% 70%;
+    --accent-foreground: 130 10% 10%;
+
+    --destructive: 0 70% 55%; /* Slightly desaturated Red */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 30%; /* Darker border */
+    --input: 240 10% 28%;
+    --ring: 130 60% 70%;
+
+    --chart-1: 130 60% 70%;
+    --chart-2: 39 80% 80%;
+    --chart-3: 0 70% 55%;
+    --chart-4: 210 60% 65%;
+    --chart-5: 270 60% 75%;
+
+    --sidebar-background: 240 10% 95%; /* Light Background */
+    --sidebar-foreground: 240 10% 15%; /* Dark Foreground */
+    --sidebar-primary: 130 60% 60%; /* Mint Primary */
+    --sidebar-primary-foreground: 240 10% 95%; /* Light Text */
+    --sidebar-accent: 240 10% 90%; /* Lighter Grey Accent */
+    --sidebar-accent-foreground: 240 10% 10%; /* Dark Text */
+    --sidebar-border: 240 10% 85%; /* Light Border */
+    --sidebar-ring: 130 60% 60%; /* Mint Ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border; /* Apply base border color */
+  }
+  body {
+    @apply bg-background text-foreground antialiased; /* Re-add antialiased */
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Restore scroll animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+ .scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+ .scroll-animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+ .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+}
