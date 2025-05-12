@@ -45,17 +45,17 @@ export function CourseDetailModal({
         <DialogHeader className="p-5 sm:p-6 pb-4 border-b">
           <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
             <div>
-              <DialogTitle className="text-xl sm:text-2xl font-bold text-foreground">
+              <DialogTitle className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2">
                 {course.title}
+                <Badge variant="outline" className="shrink-0 mt-1 capitalize">
+                  {course.level}
+                </Badge>
               </DialogTitle>
 
               <DialogDescription className="text-sm sm:text-base text-muted-foreground mt-1">
                 By {course.instructor} • {course.category}
               </DialogDescription>
             </div>
-            <Badge variant="outline" className="shrink-0 mt-1 capitalize">
-              {course.level}
-            </Badge>
           </div>
         </DialogHeader>
 
