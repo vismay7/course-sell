@@ -4,15 +4,15 @@ export interface Course {
   description: string;
   longDescription?: string;
   instructor: string;
-  duration: string; 
-  rating: number; 
-  imageUrl: string;
-  trailerUrl?: string; 
+  duration: string;
+  rating: number;
+  imageUrl: string | any;
+  trailerUrl?: string;
   category: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  level: "Beginner" | "Intermediate" | "Advanced";
   studentsEnrolled: number;
   tags: string[];
-  price?: number; 
+  price?: number;
   featured?: boolean;
   lastUpdated: string;
 }

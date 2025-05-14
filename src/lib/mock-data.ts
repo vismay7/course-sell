@@ -1,4 +1,10 @@
 import type { Course } from "@/types/course";
+import web from "@/public/images/web.jpg";
+import msm from "@/public/images/msm.webp";
+import cse from "@/public/images/cse.jpg";
+import dmm from "@/public/images/dmm.jpg";
+import pds from "@/public/images/pds.jpg";
+import uiux from "@/public/images/uiux.jpg";
 
 export const mockCourses: Course[] = [
   {
@@ -10,9 +16,7 @@ export const mockCourses: Course[] = [
     instructor: "Dr. Angela Yu",
     duration: "12h 30m",
     rating: 4.7,
-    imageUrl: "https://picsum.photos/seed/webdev/600/400",
-    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-
+    imageUrl: web,
     category: "Development",
     level: "Beginner",
     studentsEnrolled: 12050,
@@ -30,7 +34,7 @@ export const mockCourses: Course[] = [
     instructor: "Maximilian Schwarzmüller",
     duration: "20h 15m",
     rating: 4.9,
-    imageUrl: "https://picsum.photos/seed/reactadv/600/400",
+    imageUrl: msm,
     category: "Development",
     level: "Advanced",
     studentsEnrolled: 8500,
@@ -49,8 +53,8 @@ export const mockCourses: Course[] = [
     instructor: "Jane Portman",
     duration: "15h 00m",
     rating: 4.6,
-    imageUrl: "https://picsum.photos/seed/uiux/600/400",
-    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    imageUrl: uiux,
+    price: 59.99,
     category: "Design",
     level: "Beginner",
     studentsEnrolled: 9800,
@@ -68,7 +72,7 @@ export const mockCourses: Course[] = [
     instructor: "Jose Portilla",
     duration: "25h 45m",
     rating: 4.8,
-    imageUrl: "https://picsum.photos/seed/datascience/600/400",
+    imageUrl: pds,
     category: "Data Science",
     level: "Intermediate",
     studentsEnrolled: 15200,
@@ -85,9 +89,9 @@ export const mockCourses: Course[] = [
       "Become a digital marketing expert. This masterclass covers all essential aspects, including search engine optimization (SEO), content creation, social media strategy, email marketing, and pay-per-click (PPC) advertising. Real case studies and practical exercises included.",
     instructor: "Neil Patel",
     duration: "18h 00m",
+    price: 89.99,
     rating: 4.5,
-    imageUrl: "https://picsum.photos/seed/marketing/600/400",
-    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    imageUrl: dmm,
     category: "Marketing",
     level: "Intermediate",
     studentsEnrolled: 7600,
@@ -104,7 +108,7 @@ export const mockCourses: Course[] = [
     instructor: "Kevin Mitnick",
     duration: "16h 30m",
     rating: 4.7,
-    imageUrl: "https://picsum.photos/seed/cybersecurity/600/400",
+    imageUrl: cse,
     category: "IT & Software",
     level: "Beginner",
     studentsEnrolled: 6500,

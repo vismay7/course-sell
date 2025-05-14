@@ -19,18 +19,25 @@ import {
   Zap,
   InfoIcon,
   ShoppingCartIcon,
+  DollarSign,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface CourseCardProps {
   course: Course;
-  onViewDetails?: (course: Course) => void;
+  onViewDetails: (course: Course) => void;
 }
 
 export function CourseCard({ course, onViewDetails }: CourseCardProps) {
+  const route = useRouter();
+
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group bg-card">
-      <CardHeader className="p-0 relative">
+      <CardHeader
+        className="p-0 relative cursor-pointer"
+        onClick={() => onViewDetails(course)}
+      >
         <Image
           src={course.imageUrl}
           alt={course.title}
@@ -49,7 +56,10 @@ export function CourseCard({ course, onViewDetails }: CourseCardProps) {
           </Badge>
         )}
       </CardHeader>
-      <CardContent className="p-4 flex-grow flex flex-col">
+      <CardContent
+        className="p-4 flex-grow flex flex-col cursor-pointer "
+        onClick={() => onViewDetails(course)}
+      >
         <Badge
           variant="secondary"
           className="mb-2 self-start text-xs font-medium"
@@ -89,41 +99,20 @@ export function CourseCard({ course, onViewDetails }: CourseCardProps) {
         </div>
       </CardContent>
       <CardFooter className="p-4 border-t mt-auto bg-muted/50">
-        {onViewDetails ? (
-          <div className="flex justify-between items-center w-full gap-4">
-            <Button
-              size="sm"
-              onClick={() => onViewDetails(course)}
-              variant="outline"
-              className="w-full hover:bg-background/100"
-              aria-label={`View details for ${course.title}`}
-            >
-              <InfoIcon className="mr-1.5 h-4 w-4" /> View Details
-            </Button>
-            <Button
-              size="sm"
-              onClick={() => onViewDetails(course)}
-              variant="default"
-              className="w-full"
-              aria-label={`View details for ${course.title}`}
-            >
-              <ShoppingCartIcon className="mr-1.5 h-4 w-4" /> Checkout
-            </Button>
+        <div className="flex justify-between items-center w-full gap-4">
+          <div className="w-full flex items-center justify-center text-sm font-medium text-muted-foreground">
+            <DollarSign className="h-4 w-4" /> {course.price}
           </div>
-        ) : (
-          <div className="flex justify-between items-center w-full">
-            {course.price != null ? (
-              <p className="text-lg font-bold text-primary">
-                ${course.price.toFixed(2)}
-              </p>
-            ) : (
-              <p className="text-lg font-bold text-primary">Free</p>
-            )}
-            <Button size="sm" variant="ghost" asChild>
-              <Link href={`/courses/${course.id}`}>Learn More</Link>
-            </Button>
-          </div>
-        )}
+          <Button
+            size="sm"
+            onClick={() => route.push(`/checkout/${course.id}`)}
+            variant="default"
+            className="w-full"
+            aria-label={`View details for ${course.title}`}
+          >
+            <ShoppingCartIcon className="mr-1.5 h-4 w-4" /> Checkout
+          </Button>
+        </div>
       </CardFooter>
     </Card>
   );

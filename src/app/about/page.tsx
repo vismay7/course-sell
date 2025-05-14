@@ -2,12 +2,9 @@
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
 import {
-  Users,
-  Target,
   Lightbulb,
   Zap,
   Building,
@@ -19,12 +16,16 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import hana1 from "@/public/team-img/hana.jpg";
+import john from "@/public/team-img/john.jpg";
+import alice from "@/public/team-img/alice.jpg";
+import dexter from "@/public/team-img/dexter.jpg";
 
 const teamMembers = [
-  { name: "Ananya Sharma", role: "Founder & CEO", avatarSeed: "ananya" },
-  { name: "Rohan Verma", role: "Lead Instructor", avatarSeed: "rohan" },
-  { name: "Priya Singh", role: "Head of Design", avatarSeed: "priya" },
-  { name: "Vikram Patel", role: "Marketing Guru", avatarSeed: "vikram" },
+  { name: "Hana Jia", role: "Founder & CEO", avatarSeed: hana1 },
+  { name: "John Hamilton", role: "Lead Instructor", avatarSeed: john },
+  { name: "Alice Simpson", role: "Head of Design", avatarSeed: alice },
+  { name: "Dexter Watts", role: "Marketing Guru", avatarSeed: dexter },
 ];
 
 const coreValues = [
@@ -149,17 +150,12 @@ export default function AboutUsPage() {
               className="flex flex-col items-center space-y-2"
             >
               <Avatar className="w-24 h-24 mb-2 border-2 border-primary/20">
-                <AvatarImage
-                  src={`https://picsum.photos/seed/${member.avatarSeed}/200`}
+                <Image
+                  src={member.avatarSeed}
                   alt={member.name}
+                  className="object-cover w-full h-full"
                   data-ai-hint="professional portrait simple"
                 />
-                <AvatarFallback className="text-xl">
-                  {member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </AvatarFallback>
               </Avatar>
               <h3 className="text-base sm:text-lg font-semibold text-foreground">
                 {member.name}
