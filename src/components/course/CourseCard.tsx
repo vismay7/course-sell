@@ -11,7 +11,15 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Star, Users, Clock, PlayCircle, Zap } from "lucide-react";
+import {
+  Star,
+  Users,
+  Clock,
+  PlayCircle,
+  Zap,
+  InfoIcon,
+  ShoppingCartIcon,
+} from "lucide-react";
 import Link from "next/link";
 
 interface CourseCardProps {
@@ -82,15 +90,26 @@ export function CourseCard({ course, onViewDetails }: CourseCardProps) {
       </CardContent>
       <CardFooter className="p-4 border-t mt-auto bg-muted/50">
         {onViewDetails ? (
-          <Button
-            size="sm"
-            onClick={() => onViewDetails(course)}
-            variant="default"
-            className="w-full"
-            aria-label={`View details for ${course.title}`}
-          >
-            <PlayCircle className="mr-1.5 h-4 w-4" /> View Details
-          </Button>
+          <div className="flex justify-between items-center w-full gap-4">
+            <Button
+              size="sm"
+              onClick={() => onViewDetails(course)}
+              variant="outline"
+              className="w-full hover:bg-background/100"
+              aria-label={`View details for ${course.title}`}
+            >
+              <InfoIcon className="mr-1.5 h-4 w-4" /> View Details
+            </Button>
+            <Button
+              size="sm"
+              onClick={() => onViewDetails(course)}
+              variant="default"
+              className="w-full"
+              aria-label={`View details for ${course.title}`}
+            >
+              <ShoppingCartIcon className="mr-1.5 h-4 w-4" /> Checkout
+            </Button>
+          </div>
         ) : (
           <div className="flex justify-between items-center w-full">
             {course.price != null ? (

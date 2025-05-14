@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-background to-secondary/30 rounded-lg">
+    <section className="py-16 md:py-16 lg:py-8 bg-gradient-to-br from-background to-secondary/30 rounded-lg">
       <div className="container px-4 md:px-6 grid gap-10 lg:grid-cols-2 items-center">
         <div className="space-y-6 text-left">
           <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
