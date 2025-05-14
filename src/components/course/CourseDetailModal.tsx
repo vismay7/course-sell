@@ -24,7 +24,9 @@ import {
   CheckCircle,
   Rocket,
   BookCheck,
+  ShoppingCart,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface CourseDetailModalProps {
   course: Course | null;
@@ -37,6 +39,7 @@ export function CourseDetailModal({
   isOpen,
   onClose,
 }: CourseDetailModalProps) {
+  const router = useRouter();
   if (!course) return null;
 
   return (
@@ -212,8 +215,9 @@ export function CourseDetailModal({
             variant="default"
             size="sm"
             className="shadow-sm hover:shadow-md transition-shadow"
+            onClick={() => router.push(`/checkout/${course.id}`)}
           >
-            <BookCheck className="mr-1.5 h-4 w-4" /> Enroll Now
+            <ShoppingCart className="mr-1.5 h-4 w-4" /> Checkout
           </Button>
         </DialogFooter>
       </DialogContent>
